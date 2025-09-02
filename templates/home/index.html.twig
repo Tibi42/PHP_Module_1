@@ -1,30 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Module 1 PHP SYMFONY{% endblock %}
+{% block title %}Module 1 PHP SYMFONY
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+	<div class="flex">
+		<div class="container">
+			<h1>Hello
+				{{ stagiaire_name }}
+				{{ stagiaire_nom }}! ✅</h1>
+			<blockquote>
+				<p>Vous avez
+					{{ stagiaire_age }}
+					ans</p>
+				<p>Vous êtes de sexe
+					{{ stagiaire_sexe }}</p>
+				<p>{{ stagiaire_description }}</p>
+				<ul>
+					<li>{{ stagiaire_nom }}</li>
+					<li>{{ stagiaire_age }}</li>
+					<li>{{ stagiaire_sexe }}</li>
+				</ul>
+			</blockquote>
 
-<div class="example-wrapper">
-    <h1>Hello {{ stagiaire_name }} {{ stagiaire_nom }}! ✅</h1>
-    <blockquote>
-        <p>Vous avez {{ stagiaire_age }} ans</p>
-        <p>Vous êtes de sexe {{ stagiaire_sexe }}</p>
-        <p>{{ stagiaire_description }}</p>
-        <ul>
-            <li>{{ stagiaire_nom }}</li>
-            <li>{{ stagiaire_age }}</li>
-            <li>{{ stagiaire_sexe }}</li>
-        </ul>
-    </blockquote>
-    <pre>
-        {{ dump(hobby) }}
-    </pre>
-    <pre>
-        {{ (couleur) }}
-    </pre>
-</div>
+		</div>
+		<div class="container">
+			<h1>Hello
+				{{ tableau_associatif.Prenom }}
+				{{ tableau_associatif.Nom }}! ✅</h1>
+			<blockquote>
+				<p>Vous avez
+					{{ tableau_associatif.Age }}
+					ans</p>
+				<p>{{ tableau_associatif.Email }}</p>
+				<p>{{ tableau_associatif.Formation }}</p>
+				<p>{{ tableau_associatif.Competences[0]  }},
+					{{ tableau_associatif.Competences[1] }},
+					{{ tableau_associatif.Competences[2] }}</p>
+			</blockquote>
+		</div>
+		<div class="card">
+			<div class="avatar">👨‍💻</div>
+			<div class="stagiaire">{{ stagiaire_name }}
+				{{ stagiaire_nom }}</div>
+			<div class="description">{{ stagiaire_description }}</div>
+			<div class="info">Âge :
+				<span class="highlight">{{ stagiaire_age }}</span>
+				ans</div>
+			<div class="info">Couleur préférée :
+				<span class="highlight">{{ couleur[0] }}</span>
+			</div>
+			<div class="info">Meilleure amie :
+				<span class="highlight">{{ ami }}</span>
+			</div>
+		</div>
+	</div>
+
 {% endblock %}
