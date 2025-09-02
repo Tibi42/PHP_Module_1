@@ -43,18 +43,22 @@ final class HomeController extends AbstractController
             $est_disponible = "Non";
         }
 
-        // // Affichage de informations du stagiaire
-        // echo "<H1>Bienvenue " . $prenom . " " . $nom . "<br>je suis heureux de vous revoir</H1>";
-        // echo "<p>Vous avez " . $age . " ans</p>";
-        // echo "<h2>Votre email est : " . $email . "</h2>";
-        // echo "<p>Votre telephone est : " . $telephone . "</p>";
-        // echo "<ul>
-        //     <li>Votre ville est : " . $ville . "</li>
-        //     <li>Votre formation est : " . $formation . "</li>
-        //     <li>Votre duree de stage est : " . $duree_stage . "</li>
-        // </ul>";
-        // echo "<p>Vos competences sont : " . implode(", ", $competences) . "</p>";
-        // echo "<p>Vous etes disponible : " . $est_disponible . "</p>";
+        // Affichage de informations du stagiaire
+        echo "<body class=\"flex\">";
+        echo "<div class='container'>";
+        echo "<H1>Bienvenue " . $prenom . " " . $nom . "<br>je suis heureux de vous revoir</H1>";
+        echo "<p>Vous avez " . $age . " ans</p>";
+        echo "<h2>Votre email est : " . $email . "</h2>";
+        echo "<p>Votre telephone est : " . $telephone . "</p>";
+        echo "<ul>
+            <li>Votre ville est : " . $ville . "</li>
+            <li>Votre formation est : " . $formation . "</li>
+            <li>Votre duree de stage est : " . $duree_stage . "</li>
+        </ul>";
+        echo "<p>Vos competences sont : " . implode(", ", $competences) . "</p>";
+        echo "<p>Vous etes disponible : " . $est_disponible . "</p>";
+        echo "</div>";
+        echo "</body>";
 
         $tableau_associatif = [
             'Nom' => $nom,
@@ -68,12 +72,20 @@ final class HomeController extends AbstractController
             'Competences' => $competences,
             'Est_disponible' => $est_disponible,
         ];
-       
+        
+        
+        
+        
+        // Sous forme de fonction
+        
+
+
         // dd($nom, $age, $sexe, $description); test de variable
         return $this->render('home/index.html.twig', [
             'stagiaire_name' => $prenom,
             'stagiaire_nom' => $nom,
             'stagiaire_age' => $age,
+            'stagiaire_email' => $email,
             'stagiaire_sexe' => $sexe,
             'stagiaire_description' => $description,
             'tableau' => $tableau_associatif,

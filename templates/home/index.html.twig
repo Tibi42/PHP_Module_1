@@ -25,13 +25,12 @@
 				<p>Vous avez
 					{{ stagiaire_age }}
 					ans</p>
-				<p>Vous êtes de sexe
-					{{ stagiaire_sexe }}</p>
+				<p>
+					{{ stagiaire_email }}</p>
 				<p>{{ stagiaire_description }}</p>
 				<ul>
 					<li>{{ stagiaire_nom }}</li>
 					<li>{{ stagiaire_age }}</li>
-					<li>{{ stagiaire_sexe }}</li>
 				</ul>
 			</blockquote>
 
@@ -55,16 +54,41 @@
 			<div class="avatar">👨‍💻</div>
 			<div class="stagiaire">{{ stagiaire_name }}
 				{{ stagiaire_nom }}</div>
-			<div class="description">{{ stagiaire_description }}</div>
+
 			<div class="info">Âge :
 				<span class="highlight">{{ stagiaire_age }}</span>
 				ans</div>
+			<div class="info">Email :
+				<span class="highlight">{{ stagiaire_email }}</span>
+			</div>
+			<div class="description">{{ stagiaire_description }}</div>
 			<div class="info">Couleur préférée :
 				<span class="highlight">{{ couleur[0] }}</span>
 			</div>
 			<div class="info">Meilleure amie :
 				<span class="highlight">{{ ami }}</span>
 			</div>
+		</div>
+
+		<div class="card">
+			<div class="avatar">👨‍💻</div>
+			<div class="stagiaire">
+				{% for cle, valeur in tableau_associatif %}
+					{% if cle != 'Competences' %}
+						<div>
+							<strong>{{ cle }}
+								:</strong>
+							{{ valeur }}</div>
+					{% else %}
+						<div>
+							<strong>{{ cle }}
+								:</strong>
+							{{ valeur|join(', ') }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+
 		</div>
 	</div>
 
